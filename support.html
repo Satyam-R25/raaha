@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support & Help Center</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+        header { 
+            background: #043c3c; 
+            color: white; 
+            text-align: center; 
+            padding: 0.5rem 0; 
+        }
+        .header-container { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 0 1rem ; 
+        }
+        .logo { 
+            width: 100px; 
+            height: auto; 
+         padding-left: 3%;
+        }
+        .task-bar { 
+            display: flex; 
+            gap: 1rem; 
+        }
+        .task-bar a { 
+            color: rgb(255, 255, 255); 
+            text-decoration: none; 
+            padding: 0.5rem 1rem; 
+        }
+        .task-bar a:hover { 
+            background: #0077b6; 
+            border-radius: 4px; 
+        }
+        footer { background: #043c3c; color: white; text-align: center; padding: 1rem 0; margin-top: 2rem; }
+        .container { padding: 2rem; }
+        .card { background: white; padding: 1.5rem; margin-bottom: 1rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+        h2 { color: #0077b6; }
+        .faq-item { margin-bottom: 1rem; }
+        .faq-item h3 { cursor: pointer; background: #0077b6; color: white; padding: 0.5rem; border-radius: 4px; }
+        .faq-item p { display: none; padding: 0.5rem; background: #e1f5fe; border-radius: 4px; }
+        button { background: #0077b6; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #023e8a; }
+    </style>
+    
+    
+</head>
+<body>
+    <header id="navbar"></header>
+
+<script>
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('navbar').innerHTML = data);
+</script>
+
+    </header>
+    <div class="container">
+        <section class="card">
+            <h2>Live Support</h2>
+            <p>Need immediate help? Connect with our support team via live chat.</p>
+            <button onclick="alert('Connecting to live chat...')">Start Live Chat</button>
+        </section>
+        <section class="card">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h3 onclick="toggleFAQ(this)">How do I set my availability?</h3>
+                <p>Go to the Appointment Management page and select your available dates and time slots.</p>
+            </div>
+            <div class="faq-item">
+                <h3 onclick="toggleFAQ(this)">How can I track my earnings?</h3>
+                <p>You can view all your earnings and pending payments in the Payment & Earnings Dashboard.</p>
+            </div>
+            <div class="faq-item">
+                <h3 onclick="toggleFAQ(this)">How do I manage my profile?</h3>
+                <p>Head over to the Profile Management page to update your personal details and preferences.</p>
+            </div>
+            <div class="faq-item">
+                <h3 onclick="toggleFAQ(this)">What should I do if a payment is delayed?</h3>
+                <p>If a payment remains pending beyond the expected period, contact support immediately.</p>
+            </div>
+        </section>
+        <section class="card">
+            <h2>Onboarding Assistance</h2>
+            <p>Need help getting started on Raaha Health? Reach out to our onboarding team for guidance.</p>
+            <button onclick="alert('Onboarding support will contact you shortly!')">Request Onboarding Help</button>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 Raaha Health. All Rights Reserved.</p>
+    </footer>
+    <script>
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>

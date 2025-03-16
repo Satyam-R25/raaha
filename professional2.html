@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Psychologist Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    /* Header */
+    .header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header h1 {
+      margin: 0;
+    }
+
+    .header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .header nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    h2 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    /* Footer */
+    .footer {
+      background: #2c3e50;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    .footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hidden Sections */
+    .section {
+      display: none;
+    }
+
+    .section.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <h1>Psychologist Dashboard</h1>
+    <nav>
+      <a href="#dashboard" class="nav-link" data-section="dashboard">Dashboard</a>
+      <a href="#community" class="nav-link" data-section="community">Community</a>
+      <a href="#marketing" class="nav-link" data-section="marketing">Marketing</a>
+      <a href="#security" class="nav-link" data-section="security">Security</a>
+      <a href="#support" class="nav-link" data-section="support">Support</a>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="section active">
+      <h2>Welcome to Your Dashboard</h2>
+      <p>Manage your profile, appointments, payments, and more.</p>
+    </section>
+
+    <!-- Community & Networking Section -->
+    <section id="community" class="section">
+      <h2>Community & Networking</h2>
+      <p>Forums, workshops, and resource sharing will go here.</p>
+    </section>
+
+    <!-- Marketing & Visibility Tools Section -->
+    <section id="marketing" class="section">
+      <h2>Marketing & Visibility Tools</h2>
+      <p>Boost profile visibility, content creation, and social media integration will go here.</p>
+    </section>
+
+    <!-- Security & Compliance Section -->
+    <section id="security" class="section">
+      <h2>Security & Compliance</h2>
+      <p>HIPAA compliance, MFA, and confidentiality policies will go here.</p>
+    </section>
+
+    <!-- Support & Help Center Section -->
+    <section id="support" class="section">
+      <h2>Support & Help Center</h2>
+      <p>Live chat support, FAQs, and onboarding assistance will go here.</p>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>&copy; 2023 Raaha. All rights reserved.</p>
+    <nav>
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#terms">Terms of Service</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+  </div>
+
+  <script>
+    // JavaScript to handle navigation
+    const sections = document.querySelectorAll('.section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Function to show the selected section
+    function showSection(sectionId) {
+      sections.forEach(section => {
+        if (section.id === sectionId) {
+          section.classList.add('active');
+        } else {
+          section.classList.remove('active');
+        }
+      });
+    }
+
+    // Add event listeners to navigation links
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent default link behavior
+        const sectionId = link.getAttribute('data-section');
+        showSection(sectionId);
+      });
+    });
+
+    // Show the dashboard section by default
+    showSection('dashboard');
+  </script>
+</body>
+</html>

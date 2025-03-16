@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Management</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+        header { 
+            background: #043c3c; 
+            color: white; 
+            text-align: center; 
+            padding: 0.5rem 0; 
+        }
+        .header-container { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 0 1rem ; 
+        }
+        .logo { 
+            width: 100px; 
+            height: auto; 
+         padding-left: 3%;
+        }
+        .task-bar { 
+            display: flex; 
+            gap: 1rem; 
+        }
+        .task-bar a { 
+            color: rgb(255, 255, 255); 
+            text-decoration: none; 
+            padding: 0.5rem 1rem; 
+        }
+        .task-bar a:hover { 
+            background: #0077b6; 
+            border-radius: 4px; 
+        }
+        footer { background: #043c3c; color: white; text-align: center; padding: 1rem 0; margin-top: 2rem; }
+        .container { padding: 2rem; }
+        .client-card { background: white; padding: 1.5rem; margin-bottom: 1rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+        .client-card h3 { margin: 0 0 0.5rem; }
+        .client-card p { margin: 0.2rem 0; }
+        button { background: #0077b6; color: white; border: none; cursor: pointer; padding: 0.5rem 1rem; border-radius: 4px; margin-top: 0.5rem; }
+        button:hover { background: #023e8a; }
+    </style>
+</head>
+<body>
+    <header id="navbar"></header>
+    
+    
+<script>
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('navbar').innerHTML = data);
+</script>
+
+    </header>
+    <div class="container">
+        <h2>Client List</h2>
+        <div id="client-list">
+            <!-- Sample clients -->
+            <div class="client-card">
+                <h3>Client: Riya Sharma</h3>
+                <p>Age: 28 | Gender: Female</p>
+                <p>Last Session: 2025-03-05</p>
+                <p>Progress: Managing anxiety, steady improvement.</p>
+                <button onclick="viewDetails('Riya Sharma')">View Details</button>
+                <button onclick="sendMessage('Riya Sharma')">Send Message</button>
+            </div>
+            <div class="client-card">
+                <h3>Client: Arjun Mehta</h3>
+                <p>Age: 32 | Gender: Male</p>
+                <p>Last Session: 2025-03-03</p>
+                <p>Progress: Career stress, exploring coping strategies.</p>
+                <button onclick="viewDetails('Arjun Mehta')">View Details</button>
+                <button onclick="sendMessage('Arjun Mehta')">Send Message</button>
+            </div>
+            <div class="client-card">
+                <h3>Client: Neha Kapoor</h3>
+                <p>Age: 24 | Gender: Female</p>
+                <p>Last Session: 2025-03-07</p>
+                <p>Progress: Building self-confidence, positive outlook.</p>
+                <button onclick="viewDetails('Neha Kapoor')">View Details</button>
+                <button onclick="sendMessage('Neha Kapoor')">Send Message</button>
+            </div>
+            <div class="client-card">
+                <h3>Client: Kabir Singh</h3>
+                <p>Age: 30 | Gender: Male</p>
+                <p>Last Session: 2025-03-01</p>
+                <p>Progress: Managing anger issues, gradual progress.</p>
+                <button onclick="viewDetails('Kabir Singh')">View Details</button>
+                <button onclick="sendMessage('Kabir Singh')">Send Message</button>
+            </div>
+            <div class="client-card">
+                <h3>Client: Ananya Iyer</h3>
+                <p>Age: 26 | Gender: Female</p>
+                <p>Last Session: 2025-03-06</p>
+                <p>Progress: Dealing with trauma, early stages of therapy.</p>
+                <button onclick="viewDetails('Ananya Iyer')">View Details</button>
+                <button onclick="sendMessage('Ananya Iyer')">Send Message</button>
+            </div>
+            <div class="client-card">
+                <h3>Client: Sameer Khan</h3>
+                <p>Age: 35 | Gender: Male</p>
+                <p>Last Session: 2025-03-04</p>
+                <p>Progress: Work-life balance, small improvements.</p>
+                <button onclick="viewDetails('Sameer Khan')">View Details</button>
+                <button onclick="sendMessage('Sameer Khan')">Send Message</button>
+            </div>
+            <div class="client-card">
+                <h3>Client: Pooja Nair</h3>
+                <p>Age: 29 | Gender: Female</p>
+                <p>Last Session: 2025-03-02</p>
+                <p>Progress: Relationship issues, good breakthroughs.</p>
+                <button onclick="viewDetails('Pooja Nair')">View Details</button>
+                <button onclick="sendMessage('Pooja Nair')">Send Message</button>
+            </div>
+            <div class="client-card">
+                <h3>Client: Aman Verma</h3>
+                <p>Age: 27 | Gender: Male</p>
+                <p>Last Session: 2025-03-08</p>
+                <p>Progress: Battling depression, showing resilience.</p>
+                <button onclick="viewDetails('Aman Verma')">View Details</button>
+                <button onclick="sendMessage('Aman Verma')">Send Message</button>
+            </div>
+            <div class="client-card">
+                <h3>Client: Sneha Roy</h3>
+                <p>Age: 31 | Gender: Female</p>
+                <p>Last Session: 2025-03-09</p>
+                <p>Progress: Work burnout, developing coping skills.</p>
+                <button onclick="viewDetails('Sneha Roy')">View Details</button>
+                <button onclick="sendMessage('Sneha Roy')">Send Message</button>
+            </div>
+            <div class="client-card">
+                <h3>Client: Ravi Mishra</h3>
+                <p>Age: 33 | Gender: Male</p>
+                <p>Last Session: 2025-03-10</p>
+                <p>Progress: Family issues, slow but consistent growth.</p>
+                <button onclick="viewDetails('Ravi Mishra')">View Details</button>
+                <button onclick="sendMessage('Ravi Mishra')">Send Message</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Raaha Health. All Rights Reserved.</p>
+    </footer>
+    <script>
+        function viewDetails(clientName) {
+            alert(`Viewing details for ${clientName}`);
+            // Placeholder — here you can expand with client profiles
+        }
+
+        function sendMessage(clientName) {
+            const message = prompt(`Send a message to ${clientName}:`);
+            if (message) {
+                alert(`Message sent to ${clientName}: "${message}"`);
+            }
+        }
+    </script>
+</body>
+</html>

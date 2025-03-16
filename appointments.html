@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Management</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+        header { 
+            background: #043c3c; 
+            color: white; 
+            text-align: center; 
+            padding: 0.5rem 0; 
+        }
+        .header-container { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 0 1rem ; 
+        }
+        .logo { 
+            width: 100px; 
+            height: auto; 
+         padding-left: 3%;
+        }
+        .task-bar { 
+            display: flex; 
+            gap: 1rem; 
+        }
+        .task-bar a { 
+            color: rgb(255, 255, 255); 
+            text-decoration: none; 
+            padding: 0.5rem 1rem; 
+        }
+        .task-bar a:hover { 
+            background: #0077b6; 
+            border-radius: 4px; 
+        }
+        footer { background: #043c3c; color: white; text-align: center; padding: 1rem 0; margin-top: 2rem; }
+        .container { padding: 2rem; }
+        .card { background: white; padding: 1.5rem; margin-bottom: 1rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+        label { display: block; margin: 0.5rem 0 0.2rem; }
+        .time-slots, .date-slots { display: flex; gap: 10px; flex-wrap: wrap; }
+        .time-slot, .date-slot { background: #0077b6; color: white; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; }
+        .time-slot:hover, .date-slot:hover { background: #023e8a; }
+        .time-slot.selected, .date-slot.selected { background: #00b4d8; }
+        button { background: #0077b6; color: white; border: none; cursor: pointer; padding: 0.5rem 1rem; border-radius: 4px; }
+        button:hover { background: #023e8a; }
+        .calendar { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; margin-top: 1rem; }
+        .calendar-day { padding: 0.5rem; background: #e0e0e0; text-align: center; border-radius: 4px; cursor: pointer; }
+        .calendar-day:hover { background: #0077b6; color: white; }
+        .calendar-day.selected { background: #00b4d8; color: white; }
+    </style>
+</head>
+<header id="navbar"></header>
+
+<script>
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('navbar').innerHTML = data);
+</script>
+
+<body>
+   
+    </header>
+    <div class="container">
+        <section class="card">
+            <h2>Set Availability</h2>
+            <h3>Select Dates (Max 10 Dates):</h3>
+            <div class="calendar" id="calendar"></div>
+            <h3>Available Time Slots (Max 5 Sessions):</h3>
+            <div class="time-slots" id="time-slots">
+                <div class="time-slot" onclick="toggleTimeSlot(this)">09:00 - 10:00</div>
+                <div class="time-slot" onclick="toggleTimeSlot(this)">10:00 - 11:00</div>
+                <div class="time-slot" onclick="toggleTimeSlot(this)">11:00 - 12:00</div>
+                <div class="time-slot" onclick="toggleTimeSlot(this)">14:00 - 15:00</div>
+                <div class="time-slot" onclick="toggleTimeSlot(this)">15:00 - 16:00</div>
+            </div>
+            <label for="session-type">Session Type:</label>
+            <select id="session-type">
+                <option value="individual">Individual Therapy</option>
+                <option value="couple">Couples Therapy</option>
+                <option value="group">Group Therapy</option>
+            </select>
+            <button onclick="saveAvailability()">Save Availability</button>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 Raaha Health. All Rights Reserved.</p>
+    </footer>
+    <script>
+        function toggleTimeSlot(element) {
+            if (document.querySelectorAll('.time-slot.selected').length >= 5 && !element.classList.contains('selected')) {
+                alert('You can only select up to 5 sessions.');
+                return;
+            }
+            element.classList.toggle('selected');
+        }
+
+        function toggleDateSlot(element) {
+            if (document.querySelectorAll('.calendar-day.selected').length >= 10 && !element.classList.contains('selected')) {
+                alert('You can only select up to 10 dates.');
+                return;
+            }
+            element.classList.toggle('selected');
+        }
+
+        function saveAvailability() {
+            const selectedDates = Array.from(document.querySelectorAll('.calendar-day.selected')).map(el => el.textContent);
+            const selectedTimes = Array.from(document.querySelectorAll('.time-slot.selected')).map(el => el.textContent);
+            const sessionType = document.getElementById('session-type').value;
+            alert(`Availability saved!\nDates: ${selectedDates.join(', ')}\nSessions: ${selectedTimes.join(', ')}\nType: ${sessionType}`);
+        }
+
+        function generateCalendar() {
+            const calendar = document.getElementById('calendar');
+            const daysInMonth = 31;
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayElement = document.createElement('div');
+                dayElement.className = 'calendar-day';
+                dayElement.textContent = `Mar ${day}`;
+                dayElement.onclick = () => toggleDateSlot(dayElement);
+                calendar.appendChild(dayElement);
+            }
+        }
+
+        window.onload = generateCalendar;
+    </script>
+</body>
+</html>

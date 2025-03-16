@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment & Earnings Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+        header { 
+            background: #043c3c; 
+            color: white; 
+            text-align: center; 
+            padding: 0.5rem 0; 
+        }
+        .header-container { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 0 1rem ; 
+        }
+        .logo { 
+            width: 100px; 
+            height: auto; 
+         padding-left: 3%;
+        }
+        .task-bar { 
+            display: flex; 
+            gap: 1rem; 
+        }
+        .task-bar a { 
+            color: rgb(255, 255, 255); 
+            text-decoration: none; 
+            padding: 0.5rem 1rem; 
+        }
+        .task-bar a:hover { 
+            background: #0077b6; 
+            border-radius: 4px; 
+        }
+        footer { background: #043c3c; color: white; text-align: center; padding: 1rem 0; margin-top: 2rem; }
+        .container { padding: 2rem; }
+        .earnings-summary { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); margin-bottom: 1.5rem; }
+        .payment-table { width: 100%; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 0.8rem; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background: #0077b6; color: white; }
+        tr:hover { background: #f1f1f1; }
+        .status-paid { color: green; }
+        .status-pending { color: orange; }
+    </style>
+    
+    
+</head>
+<body>
+    <header id="navbar"></header>
+
+<script>
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('navbar').innerHTML = data);
+</script>
+
+    </header>
+    <div class="container">
+        <div class="earnings-summary">
+            <h2>Total Earnings: ₹1,20,000</h2>
+            <p>Sessions Completed: 45</p>
+            <p>Pending Payments: ₹15,000</p>
+        </div>
+        <h2>Payment History</h2>
+        <div class="payment-table">
+            <table>
+                <tr>
+                    <th>Client Name</th>
+                    <th>Session Date</th>
+                    <th>Session Type</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>Riya Sharma</td>
+                    <td>2025-03-05</td>
+                    <td>Individual Therapy</td>
+                    <td>₹3,000</td>
+                    <td class="status-paid">Paid</td>
+                </tr>
+                <tr>
+                    <td>Arjun Mehta</td>
+                    <td>2025-03-03</td>
+                    <td>Career Counseling</td>
+                    <td>₹3,500</td>
+                    <td class="status-pending">Pending</td>
+                </tr>
+                <tr>
+                    <td>Neha Kapoor</td>
+                    <td>2025-03-07</td>
+                    <td>Self-confidence Building</td>
+                    <td>₹2,800</td>
+                    <td class="status-paid">Paid</td>
+                </tr>
+                <tr>
+                    <td>Kabir Singh</td>
+                    <td>2025-03-01</td>
+                    <td>Anger Management</td>
+                    <td>₹3,200</td>
+                    <td class="status-paid">Paid</td>
+                </tr>
+                <tr>
+                    <td>Ananya Iyer</td>
+                    <td>2025-03-06</td>
+                    <td>Trauma Therapy</td>
+                    <td>₹4,000</td>
+                    <td class="status-pending">Pending</td>
+                </tr>
+                <tr>
+                    <td>Sameer Khan</td>
+                    <td>2025-03-04</td>
+                    <td>Work-Life Balance</td>
+                    <td>₹2,500</td>
+                    <td class="status-paid">Paid</td>
+                </tr>
+                <tr>
+                    <td>Pooja Nair</td>
+                    <td>2025-03-02</td>
+                    <td>Relationship Therapy</td>
+                    <td>₹3,800</td>
+                    <td class="status-paid">Paid</td>
+                </tr>
+                <tr>
+                    <td>Aman Verma</td>
+                    <td>2025-03-08</td>
+                    <td>Depression Management</td>
+                    <td>₹3,600</td>
+                    <td class="status-pending">Pending</td>
+                </tr>
+                <tr>
+                    <td>Sneha Roy</td>
+                    <td>2025-03-09</td>
+                    <td>Burnout Therapy</td>
+                    <td>₹3,000</td>
+                    <td class="status-paid">Paid</td>
+                </tr>
+                <tr>
+                    <td>Ravi Mishra</td>
+                    <td>2025-03-10</td>
+                    <td>Family Counseling</td>
+                    <td>₹3,400</td>
+                    <td class="status-paid">Paid</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Raaha Health. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

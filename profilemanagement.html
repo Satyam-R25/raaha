@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Management </title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+        header { 
+            background: #043c3c; 
+            color: white; 
+            text-align: center; 
+            padding: 0.5rem 0; 
+        }
+        .header-container { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 0 1rem ; 
+        }
+        .logo { 
+            width: 100px; 
+            height: auto; 
+         padding-left: 3%;
+        }
+        .task-bar { 
+            display: flex; 
+            gap: 1rem; 
+        }
+        .task-bar a { 
+            color: rgb(255, 255, 255); 
+            text-decoration: none; 
+            padding: 0.5rem 1rem; 
+        }
+        .task-bar a:hover { 
+            background: #0077b6; 
+            border-radius: 4px; 
+        }
+        .content { padding: 2rem; }
+        .card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+        label { display: block; margin: 0.5rem 0 0.2rem; }
+        input, textarea, button { width: 100%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 4px; }
+        button { background: #0077b6; color: white; border: none; cursor: pointer; }
+        button:hover { background: #023e8a; }
+        footer { background: #043c3c; color: white; text-align: center; padding: 1rem 0; margin-top: 2rem; }
+    </style>
+</head>
+<body>
+    <header id="navbar"></header>
+
+<script>
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('navbar').innerHTML = data);
+</script>
+
+</head>
+<header id="navbar"></header>
+
+<script>
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('navbar').innerHTML = data);
+</script>
+
+    </nav>
+    <div class="content">
+        <section class="card">
+            <h2>Update Your Profile</h2>
+            <form>
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your full name">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email">
+                <label for="bio">Bio</label>
+                <textarea id="bio" placeholder="Tell us about yourself"></textarea>
+                <button type="submit">Save Changes</button>
+            </form>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 Raaha Health. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
